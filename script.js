@@ -1,8 +1,10 @@
 const fetchInput = () => {
     let inputEle = document.getElementById('arr');
     let inputArrVal = inputEle.value.split(',');
-    let bricks = waterAndBricks(inputArr)
-    let water = onlyWater(inputArr)
+    let bricks = waterAndBricks(inputArrVal)
+    let water = onlyWater(inputArrVal)
+    waterAndBricks(inputArrVal,bricks)
+    onlyWater(inputArrVal,water)
 }
 
 // create table function
@@ -76,7 +78,7 @@ const waterAndBricks = (bricks) => {
             result.push({
                 value: finalCase[i],
                 itemStyle: {
-                    color: '#0000FF'
+                    color: 'aqua'
                 }
             })
         }else{
@@ -96,4 +98,60 @@ const waterAndBricks = (bricks) => {
     createTable(bricks,result,'chart-container')
     let outputSpan = document.getElementById('waterunit')
     outputSpan.innerHTML= `Total ${countWaterUnits(finalCase)} Water Units` 
+}
+
+
+const onlyWater = (water) => {
+    let firstCase=[]
+    let secondCase=[]
+    let finalCase=[]
+    let result=[]
+    let lastValueForFirstCase=0
+    let lastValueForSecondCase=0
+    for (let i = 0; i < water.length; i++) {
+        let element = water[i];
+        if (element == 0) {
+            firstCase.push(lastValueForFirstCase)
+        }else{
+            firstCase.push('-')
+            lastValueForFirstCase=element
+        }
+    }
+    for (let  i = water.length-1; i >= 0; i--) {
+        let element = water[i];
+        if (element == 0) {
+            secondCase[i]='-'
+        }else{
+            secondCase.push('-')
+            lastValueForSecondCase=element
+        }
+    }
+    for (let i = 0; i < water.length; i++) {
+        let fc=firstCase[i];
+        let sc=secondCase[i]
+        if (fc == '-') {
+            finalCase[i]='-'
+        }else{
+            finalCase[i]= fc - sc > 0 ? sc : fc
+        }
+    }
+    for (let i = 0; i < water.length; i++) {
+        let element = water[i];
+        if (element == 0) {
+            result.push({
+                value:finalCase[i],
+                itemStyle:{
+                    color: 'aqua'
+                }
+            })
+        }else{
+            result.push({
+                value:0,
+                itemStyle:{
+                    color:'aqua'
+                }
+            })
+        }
+    }
+    createTable(water,result,'chart-container1')
 }
