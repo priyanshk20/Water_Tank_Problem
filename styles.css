@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+}
+
+header{
+    width: 100%;
+    text-align: center;
+    background-color: aqua;
+    padding: 0.5rem;
+}
+
+.input{
+    height: 20vh;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input input{
+    height: 5vh;
+    width: 30%;
+    margin: 1rem;
+    text-align: center;
+    font-size:1rem;
+    font-weight:bold;
+    background-color: aqua;
+    border-radius: 10px;
+}
+
+.input button{
+    height: 5vh;
+    width: 10%;
+    font-size: 1rem;
+    font-weight:bold;
+    background-color: aqua;
+    border-radius: 10px;
+}
