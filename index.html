@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Tank Problem</title>
     <link rel="stylesheet" href="./styles.css">
+    <script src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
 </head>
 <body>
     <header>
@@ -13,7 +14,7 @@
     </header>
     <div class="input">
         <input type="text" id="arr" name="arr" placeholder="Input Array eg: 0,2,4,0,6">
-        <button type="button" id="btn">Generate</button>
+        <button type="button" id="btn" onclick="fetchInput()" >Generate</button>
     </div>
     <hr>
 
@@ -31,8 +32,6 @@
 
 
     <!-- scripts-->
-
-    <script src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
     <script src="./script.js"></script>
 </body>
 </html>
