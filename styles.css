@@ -37,3 +37,24 @@ header{
     background-color: aqua;
     border-radius: 10px;
 }
+
+
+#chart-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+#chart-container1 {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.waterAndWallContainer, .onlyWaterContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 45vh;
+}

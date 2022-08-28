@@ -85,7 +85,7 @@ const waterAndBricks = (bricks) => {
             result.push({
                 value: element,
                 itemStyle: {
-                    color: '#FFFF00'
+                    color: 'black'
                 }
             })
         }
@@ -97,7 +97,10 @@ const waterAndBricks = (bricks) => {
     console.log(countWaterUnits(finalCase));
     createTable(bricks,result,'chart-container')
     let outputSpan = document.getElementById('waterunit')
-    outputSpan.innerHTML= `Total ${countWaterUnits(finalCase)} Water Units` 
+    outputSpan.innerHTML= `Total ${countWaterUnits(finalCase)} Water Units`
+    outputSpan.style.fontSize = `30px`
+    outputSpan.style.display = `flex`
+    outputSpan.style.justifyContent = 'center' 
 }
 
 
@@ -154,4 +157,16 @@ const onlyWater = (water) => {
         }
     }
     createTable(water,result,'chart-container1')
+}
+
+
+const countWaterUnits = (finalCase) => {
+    let sum = 0
+    for (let i = 0; i < finalCase.length; i++) {
+        let element = finalCase[i];
+        if (element != '-') {
+            sum += +element
+        }
+    }
+    return sum
 }
